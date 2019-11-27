@@ -1,0 +1,1 @@
+[{"name":"Admin (Администратор)","read":true,"write":true},{"name":"Seller (Продавец)","read":true,"write":true},{"name":"Customer (Покупатель)","read":true,"write":false}]
