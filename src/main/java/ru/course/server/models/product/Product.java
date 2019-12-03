@@ -3,6 +3,8 @@ package ru.course.server.models.product;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.course.server.models.product.commons.Color;
+import ru.course.server.models.product.commons.Material;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -25,4 +27,12 @@ public class Product {
     private LocalDate releaseDate;
     private Float weight;
     private String imageUrl;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "color_id")
+    private Color color;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "material_id")
+    private Material material;
 }

@@ -27,12 +27,33 @@ public class Initializer {
     private String materialsDataFileName;
     @Value("${data.filename.roles}")
     private String rolesDataFileName;
+    @Value("${data.filename.monitors}")
+    private String monitorsDataFileName;
+    @Value("${data.filename.mouses}")
+    private String mousesDataFileName;
+    @Value("${data.filename.keyboards}")
+    private String keyboardsDataFileName;
+    @Value("${data.filename.smartphones}")
+    private String smartphonesDataFileName;
 
     @PostConstruct
     private void init() {
-        initColors();
-        initMaterials();
         initRoles();
+        initMonitors();
+        initSmartphones();
+        initMouses();
+        initKeyboards();
+    }
+
+    @SneakyThrows
+    private void initMonitors() {
+        File dataFile = new File(getClass().getClassLoader().getResource("static/data/" + monitorsDataFileName).toURI());
+        BufferedReader fileReader = new BufferedReader(new InputStreamReader(new FileInputStream(dataFile)));
+        String jsonString = fileReader.readLine();
+        if (!StringUtils.isEmpty(jsonString)) {
+            initDataLoader.initMonitors(jsonString);
+            log.info("Monitors loaded!");
+        }
     }
 
     @SneakyThrows
@@ -47,24 +68,35 @@ public class Initializer {
     }
 
     @SneakyThrows
-    private void initMaterials() {
-        File dataFile = new File(getClass().getClassLoader().getResource("static/data/" + materialsDataFileName).toURI());
+    private void initMouses() {
+        File dataFile = new File(getClass().getClassLoader().getResource("static/data/" + mousesDataFileName).toURI());
         BufferedReader fileReader = new BufferedReader(new InputStreamReader(new FileInputStream(dataFile)));
         String jsonString = fileReader.readLine();
         if (!StringUtils.isEmpty(jsonString)) {
-            initDataLoader.initMaterials(jsonString);
-            log.info("Materials loaded!");
+            initDataLoader.initMouses(jsonString);
+            log.info("Mouses loaded!");
         }
     }
 
     @SneakyThrows
-    private void initColors() {
-        File dataFile = new File(getClass().getClassLoader().getResource("static/data/" + colorsDataFileName).toURI());
+    private void initSmartphones() {
+        File dataFile = new File(getClass().getClassLoader().getResource("static/data/" + smartphonesDataFileName).toURI());
         BufferedReader fileReader = new BufferedReader(new InputStreamReader(new FileInputStream(dataFile)));
         String jsonString = fileReader.readLine();
         if (!StringUtils.isEmpty(jsonString)) {
-            initDataLoader.initColors(jsonString);
-            log.info("Colors loaded!");
+            initDataLoader.initSmartphones(jsonString);
+            log.info("Smartphones loaded!");
+        }
+    }
+
+    @SneakyThrows
+    private void initKeyboards() {
+        File dataFile = new File(getClass().getClassLoader().getResource("static/data/" + keyboardsDataFileName).toURI());
+        BufferedReader fileReader = new BufferedReader(new InputStreamReader(new FileInputStream(dataFile)));
+        String jsonString = fileReader.readLine();
+        if (!StringUtils.isEmpty(jsonString)) {
+            initDataLoader.initKeyboards(jsonString);
+            log.info("Keyboards loaded!");
         }
     }
 }

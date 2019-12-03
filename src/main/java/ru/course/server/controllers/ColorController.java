@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1/color")
+@RequestMapping("/v1/colors")
 public class ColorController {
 
     private final ColorRepository colorRepository;
