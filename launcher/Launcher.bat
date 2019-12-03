@@ -1,0 +1,1 @@
+java -jar Tech-Shop-Server.jar

@@ -10,8 +10,6 @@ import org.springframework.util.StringUtils;
 
 import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
 @Component
@@ -47,8 +45,7 @@ public class Initializer {
 
     @SneakyThrows
     private void initMonitors() {
-        File dataFile = new File(getClass().getClassLoader().getResource("static/data/" + monitorsDataFileName).toURI());
-        BufferedReader fileReader = new BufferedReader(new InputStreamReader(new FileInputStream(dataFile)));
+        BufferedReader fileReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/static/data/" + monitorsDataFileName)));
         String jsonString = fileReader.readLine();
         if (!StringUtils.isEmpty(jsonString)) {
             initDataLoader.initMonitors(jsonString);
@@ -58,8 +55,7 @@ public class Initializer {
 
     @SneakyThrows
     private void initRoles() {
-        File dataFile = new File(getClass().getClassLoader().getResource("static/data/" + rolesDataFileName).toURI());
-        BufferedReader fileReader = new BufferedReader(new InputStreamReader(new FileInputStream(dataFile)));
+        BufferedReader fileReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/static/data/" + rolesDataFileName)));
         String jsonString = fileReader.readLine();
         if (!StringUtils.isEmpty(jsonString)) {
             initDataLoader.initRoles(jsonString);
@@ -69,8 +65,7 @@ public class Initializer {
 
     @SneakyThrows
     private void initMouses() {
-        File dataFile = new File(getClass().getClassLoader().getResource("static/data/" + mousesDataFileName).toURI());
-        BufferedReader fileReader = new BufferedReader(new InputStreamReader(new FileInputStream(dataFile)));
+        BufferedReader fileReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/static/data/" + mousesDataFileName)));
         String jsonString = fileReader.readLine();
         if (!StringUtils.isEmpty(jsonString)) {
             initDataLoader.initMouses(jsonString);
@@ -80,8 +75,7 @@ public class Initializer {
 
     @SneakyThrows
     private void initSmartphones() {
-        File dataFile = new File(getClass().getClassLoader().getResource("static/data/" + smartphonesDataFileName).toURI());
-        BufferedReader fileReader = new BufferedReader(new InputStreamReader(new FileInputStream(dataFile)));
+        BufferedReader fileReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/static/data/" + smartphonesDataFileName)));
         String jsonString = fileReader.readLine();
         if (!StringUtils.isEmpty(jsonString)) {
             initDataLoader.initSmartphones(jsonString);
@@ -91,8 +85,7 @@ public class Initializer {
 
     @SneakyThrows
     private void initKeyboards() {
-        File dataFile = new File(getClass().getClassLoader().getResource("static/data/" + keyboardsDataFileName).toURI());
-        BufferedReader fileReader = new BufferedReader(new InputStreamReader(new FileInputStream(dataFile)));
+        BufferedReader fileReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/static/data/" + keyboardsDataFileName)));
         String jsonString = fileReader.readLine();
         if (!StringUtils.isEmpty(jsonString)) {
             initDataLoader.initKeyboards(jsonString);
