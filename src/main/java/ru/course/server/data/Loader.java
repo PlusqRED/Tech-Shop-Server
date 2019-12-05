@@ -1,6 +1,6 @@
 package ru.course.server.data;
 
-public interface InitDataLoader {
+public interface Loader {
     void initRoles(String rolesDataJsonType);
 
     void initMonitors(String monitorsDataJsonType);

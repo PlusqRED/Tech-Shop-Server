@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.course.server.models.product.Purchase;
 
 @Repository
-public interface PurchaseRepository extends JpaRepository<Purchase, Long> {
+public interface PurchaseJpaSpringRepository extends JpaRepository<Purchase, Long> {
 }

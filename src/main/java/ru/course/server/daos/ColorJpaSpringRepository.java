@@ -7,7 +7,7 @@ import ru.course.server.models.product.commons.Color;
 import java.util.Optional;
 
 @Repository
-public interface ColorRepository extends JpaRepository<Color, Integer> {
+public interface ColorJpaSpringRepository extends JpaRepository<Color, Integer> {
     @Override
     Optional<Color> findById(Integer integer);
 }

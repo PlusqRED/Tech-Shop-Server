@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.course.server.models.product.Mouse;
 
 @Repository
-public interface MouseRepository extends JpaRepository<Mouse, Long> {
+public interface MouseJpaSpringRepository extends JpaRepository<Mouse, Long> {
 }

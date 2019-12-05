@@ -7,6 +7,6 @@ import ru.course.server.models.users.AppUser;
 import java.util.Optional;
 
 @Repository
-public interface AppUserRepository extends JpaRepository<AppUser, Long> {
+public interface AppUserJpaSpringRepository extends JpaRepository<AppUser, Long> {
     Optional<AppUser> findByLogin(String login);
 }
