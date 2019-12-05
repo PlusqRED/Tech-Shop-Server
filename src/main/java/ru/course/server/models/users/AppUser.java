@@ -16,6 +16,8 @@ public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String phoneNumber;
+    private String birthday;
     private String login;
     private String password;
 
